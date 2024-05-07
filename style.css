@@ -22,7 +22,7 @@ body {
 
 .mainClock {
     color: black;
-    font-size: 200px;
+    font-size: 90;
     font-weight: 700;
     text-align: center;
     display: flex;
@@ -56,21 +56,21 @@ body {
 }
 
 .level {
-    font-size: 80
+    font-size: 50
 }
 
 .clock {
     font-family: monospace;
-    font-size: 340;
+    font-size: 150;
 }
 
 .ante {
     font-weight: 600;
-    font-size: 110;
+    font-size: 60;
 }
 
 .nextLevel {
-    font-size: 50;
+    font-size: 30;
 }
 
 .timestop {
@@ -100,6 +100,6 @@ body {
 }
 
 .totaltimer {
-    font-size: 60px;
+    font-size: 30px;
     font-weight: bold;
 }
