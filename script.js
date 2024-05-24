@@ -134,6 +134,9 @@ ttClockButton.addEventListener('click', function () {
     clockList = ttClockList;
     clearTimeout(timer); // 이전 타이머 중지
     updateLevel();
+    isTimerStopped = true;
+    clearTimeout(timer); // 타이머 중지
+    document.querySelector('.timestop').innerText = 'PLAY'; 
 });
 
 jjClockButton.addEventListener('click', function () {
@@ -143,6 +146,9 @@ jjClockButton.addEventListener('click', function () {
     clockList = jjClockList;
     clearTimeout(timer); // 이전 타이머 중지
     updateLevel();
+    isTimerStopped = true;
+    clearTimeout(timer); // 타이머 중지
+    document.querySelector('.timestop').innerText = 'PLAY'; 
 });
 
 qqClockButton.addEventListener('click', function () {
@@ -152,6 +158,9 @@ qqClockButton.addEventListener('click', function () {
     clockList = qqClockList;
     clearTimeout(timer); // 이전 타이머 중지
     updateLevel();
+    isTimerStopped = true;
+    clearTimeout(timer); // 타이머 중지
+    document.querySelector('.timestop').innerText = 'PLAY'; 
 });
 
 function updateLevel() {
@@ -171,6 +180,9 @@ function updateLevel() {
             anteElement.style.display = 'none';
         }
     } else {
+        anteElement.style.display = 'none';
+    }
+    if (clockList.length === 17) {
         anteElement.style.display = 'none';
     }
 
