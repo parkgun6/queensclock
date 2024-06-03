@@ -87,6 +87,9 @@ let seconds = 0;
 let timer;
 let clockList = [];
 
+// 총 시작 시간 설정
+let startTime = new Date().getTime();
+
 prevButton.addEventListener('click', function () {
     if (currentLevelIndex > 0) {
         currentLevelIndex--;
@@ -133,6 +136,7 @@ ttClockButton.addEventListener('click', function () {
     isTimerStopped = true;
     clearTimeout(timer); // 타이머 중지
     document.querySelector('.timestop').innerText = 'PLAY'; 
+    startTime = new Date().getTime();
 });
 
 jjClockButton.addEventListener('click', function () {
@@ -145,6 +149,7 @@ jjClockButton.addEventListener('click', function () {
     isTimerStopped = true;
     clearTimeout(timer); // 타이머 중지
     document.querySelector('.timestop').innerText = 'PLAY'; 
+    startTime = new Date().getTime();
 });
 
 qqClockButton.addEventListener('click', function () {
@@ -157,6 +162,7 @@ qqClockButton.addEventListener('click', function () {
     isTimerStopped = true;
     clearTimeout(timer); // 타이머 중지
     document.querySelector('.timestop').innerText = 'PLAY'; 
+    startTime = new Date().getTime();
 });
 
 function updateLevel() {
@@ -258,8 +264,6 @@ function playSound() {
 // 타이머를 표시할 HTML 요소 가져오기
 const timerDisplay = document.querySelector('.totaltimer');
 
-// 시작 시간 설정
-let startTime = new Date().getTime();
 
 // 타이머 업데이트 함수
 function updateTotalTimer() {
