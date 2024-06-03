@@ -178,7 +178,7 @@ function updateLevel() {
     } else {
         anteElement.style.display = 'none';
     }
-    if (clockList.length === 17) {
+    if (clockList.length === 13) {
         anteElement.style.display = 'none';
     }
 
