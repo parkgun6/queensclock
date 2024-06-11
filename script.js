@@ -64,6 +64,7 @@ const qqClockList = [
     { "18 LEVEL": ["120K", "240K"] },
     { "19 LEVEL": ["140K", "280K"] },
     { "20 LEVEL": ["160K", "320K"] },
+    { "20 LEVEL": ["160K", "320K"] },
 ]
 
 
@@ -79,6 +80,7 @@ const ttClockButton = document.querySelector('.ttClock');
 const jjClockButton = document.querySelector('.jjClock');
 const qqClockButton = document.querySelector('.qqClock');
 const clockInput = document.querySelector('#clockInput');
+const isTimerStopped = document.querySelector('#isTimerStopped');
 
 let currentLevelIndex = 0;
 
@@ -105,24 +107,50 @@ nextButton.addEventListener('click', function () {
 });
 
 minUpButton.addEventListener('click', function () {
-    if (minutes === 9) {
-        minutes = 10;
-        seconds = 0;
-        clearTimeout(timer); // 이전 타이머 중지
-        updateClock()
-    } else if (minutes < 9) {
-        minutes++;
-        seconds++;
-        clearTimeout(timer); // 이전 타이머 중지
-        updateClock()
-
+    if (clockList.length === 13) {
+        if (minutes === 6) {
+            minutes = 7;
+            seconds = 0;
+            clearTimeout(timer); // 이전 타이머 중지
+            updateClock()
+        } else if (minutes < 6) {
+            minutes++;
+            seconds++;
+            clearTimeout(timer); // 이전 타이머 중지
+            updateClock()
+        }
+    } else if (clockList.length === 23 ) {
+        if (minutes === 9) {
+            minutes = 10;
+            seconds = 0;
+            clearTimeout(timer); // 이전 타이머 중지
+            updateClock()
+        } else if (minutes < 9) {
+            minutes++;
+            seconds++;
+            clearTimeout(timer); // 이전 타이머 중지
+            updateClock()
+        }
+    } else {
+        if (minutes === 14) {
+            minutes = 15;
+            seconds = 0;
+            clearTimeout(timer); // 이전 타이머 중지
+            updateClock()
+        } else if (minutes < 14) {
+            minutes++;
+            seconds++;
+            clearTimeout(timer); // 이전 타이머 중지
+            updateClock()
+        }
     }
+
 });
 
 minDownButton.addEventListener('click', function () {
     minutes--;
     seconds++;
-    clearTimeout(timer); // 이전 타이머 중지
+    clearTimeout(timer); // 타이머 중지
     updateClock()
 });
 
@@ -133,7 +161,7 @@ ttClockButton.addEventListener('click', function () {
     clockList = ttClockList;
     clearTimeout(timer); // 이전 타이머 중지
     updateLevel();
-    isTimerStopped = true;
+    isTimerStopped.value = true;
     clearTimeout(timer); // 타이머 중지
     document.querySelector('.timestop').innerText = 'PLAY'; 
     startTime = new Date().getTime();
@@ -146,7 +174,7 @@ jjClockButton.addEventListener('click', function () {
     clockList = jjClockList;
     clearTimeout(timer); // 이전 타이머 중지
     updateLevel();
-    isTimerStopped = true;
+    isTimerStopped.value = true;
     clearTimeout(timer); // 타이머 중지
     document.querySelector('.timestop').innerText = 'PLAY'; 
     startTime = new Date().getTime();
@@ -159,7 +187,7 @@ qqClockButton.addEventListener('click', function () {
     clockList = qqClockList;
     clearTimeout(timer); // 이전 타이머 중지
     updateLevel();
-    isTimerStopped = true;
+    isTimerStopped.value = true;
     clearTimeout(timer); // 타이머 중지
     document.querySelector('.timestop').innerText = 'PLAY'; 
     startTime = new Date().getTime();
@@ -171,6 +199,11 @@ function updateLevel() {
     const levelName = Object.keys(currentLevelInfo)[0];
     const leveLEVELalues = currentLevelInfo[levelName];
     const anteValue = leveLEVELalues[1];
+
+    console.log(levelName);
+    if (clockList.length === 24 && levelName === '11 LEVEL') {
+        clockInput.value = 12;
+    }
 
     chipElement.innerText = `${leveLEVELalues[0]} / ${leveLEVELalues[1]}`;
     anteElement.style.display = 'block';
@@ -234,21 +267,21 @@ function updateClock() {
     }
 }
 
-let isTimerStopped = false; // 타이머가 멈춰있는지 여부를 추적하는 변수
 
 // timestop div를 클릭했을 때 호출되는 함수
 document.querySelector('.timestop').addEventListener('click', toggleTimer);
 
 // 타이머를 멈추거나 재생하는 함수
 function toggleTimer() {
-    if (isTimerStopped) {
+    if (isTimerStopped.value == 'true') {
         // 타이머가 멈춰있는 상태에서 클릭하면 재생
-        isTimerStopped = false;
+        isTimerStopped.value = false;
+        clearTimeout(timer); // 이전 타이머 중지
         updateClock(); // 타이머 재개
         document.querySelector('.timestop').innerText = 'STOP'; // 버튼 텍스트 변경
     } else {
         // 타이머가 동작중인 상태에서 클릭하면 멈춤
-        isTimerStopped = true;
+        isTimerStopped.value = true;
         clearTimeout(timer); // 타이머 중지
         document.querySelector('.timestop').innerText = 'PLAY'; // 버튼 텍스트 변경
     }
