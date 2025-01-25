@@ -1,35 +1,36 @@
-
-<link href="./style.css" rel="stylesheet"/>
+<link href="./style.css" rel="stylesheet" />
 <html>
-    <body>
-        <div class="clockDiv">
-            <div class="mainClock">
-                <div class="level"></div>
-                <div class="clock">00:00</div>
-                <input type="hidden" id="clockInput" value="10" />
-                <input type="hidden" id="isTimerStopped" value="false" />
-                <div class="chips">
-                    <div class="chip">1K/2K</div>
-                    <div class="ante">Ante: 6K</div>
-                </div>
-                <div class="nextLevel"></div>
-                <audio id="audio" src="./sound.mp3"></audio>
+
+<body>
+    <div class="clockDiv">
+        <div class="mainClock">
+            <div class="level"></div>
+            <div class="clock">00:00</div>
+            <input type="hidden" id="clockInput" value="10" />
+            <input type="hidden" id="isTimerStopped" value="false" />
+            <div class="chips">
+                <div class="chip">1K/2K</div>
+                <div class="ante">Ante: 6K</div>
             </div>
-            <div class="subInfo">
-                <div class="totaltimer">Total : 00:00:00</div>                
-            </div>
+            <div class="nextLevel"></div>
+            <audio id="audio" src="./sound.mp3"></audio>
         </div>
-        <div class="button">
-            <div class="prev">prev</div>
-            <div class="timestop">STOP</div>    
-            <div class="next">next</div>
-            <div class="minup">up</div>
-            <div class="mindown">down</div>
-            <div class="ttClock">TT</div>
-            <div class="jjClock">JJ</div>
-            <div class="qqClock">QQ</div>
+        <div class="subInfo">
+            <div class="totaltimer">Total : 00:00:00</div>
         </div>
-    </body>
+    </div>
+    <div class="button">
+        <div class="prev">prev</div>
+        <div class="timestop">STOP</div>
+        <div class="next">next</div>
+        <div class="minup">up</div>
+        <div class="mindown">down</div>
+        <div class="ttClock">TT</div>
+        <div class="jjClock">JJ</div>
+        <div class="qqClock">QQ</div>
+        <div class="kkClock">KK</div>
+    </div>
+</body>
+
 </html>
-<script src="./script.js" ></script>
-    
+<script src="./script.js"></script>
